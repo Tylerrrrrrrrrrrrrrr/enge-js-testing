@@ -36,30 +36,14 @@ canvas {
 }
 
 header {
-  position: absolute;
-  font-weight: 900;
-  z-index: 2;
-  left: 1vh;
-  top: var(--display-top);
-  bottom: 1vh;
-  width: calc(var(--display-left) - 32px);
-}
-
-header > span {
-  top: 50%;
-  right: 50%;
-  position: absolute;
-  transform: scale(-1) translate(-50%, 50%) rotate(90deg);
-  font-size: calc(var(--display-left) - 32px);
-  text-shadow: -2px 1px 2px rgba(80,80,80,0.75), 2px -1px 2px rgba(0,0,0,0.75);
-  color: rgba(24,24,24,1);
-  background: transparent;
+  /* Keep header in case JS depends on it, but collapse it */
+  display: none !important;
 }
 
 nav {
   position: absolute;
   z-index: 2;
-  color:red;
+  color: red;
   right: 1vh;
   top: 1vh;
   bottom: 1vh;
@@ -69,32 +53,12 @@ nav {
   flex-direction: column;
 }
 
-/* overrides for developer view */
 @media screen and (max-width: 133.34vh) {
   :root {
     --display-width: calc((100vw) - 2vh);
     --display-height: calc((100vw / 14 * 9) - 2vh);
     --display-left: 1vh;
     --display-top: calc((100vh - var(--display-height)) / 2);
-  }
-
-  /* canvas {
-  } */
-
-  header {
-    top: calc(var(--display-top) - 10vh);
-    right: 1vh;
-    left: 1vh;
-    height: 10vh;
-    bottom: unset;
-    width: unset;
-    line-height: 10vh;
-  }
-
-  header > span {
-    transform: scale(1) translate(50%, -50%);
-    font-size: 10vh;
-    text-shadow: 2px 1px 2px rgba(80,80,80,0.75), -2px -1px 2px rgba(0,0,0,0.75);
   }
 
   nav {
@@ -108,26 +72,7 @@ nav {
   }
 }
 
-span.nobios {
-  animation-name: color;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes color {
-  0% {
-    color: rgb(96,24,24);
-  }
-  33% {
-    color: rgb(24,24,24);
-  }
-  67% {
-    color: rgb(24,24,24);
-  }
-  100% {
-    color: rgb(96,24,24);
-  }
-}
+/* Removed header > span and .nobios styles since it's hidden */
 
 nav > div {
   width: 10vh;
